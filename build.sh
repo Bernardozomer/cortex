@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker build --tag tex . 
+docker build --tag cortex . 
