@@ -20,5 +20,5 @@ base=$(basename "$texfile")
 
 docker run --rm \
     -v "$srcdir":/tex/src:ro -v "$(pwd)/out":/tex/out \
-    --network=none \
+    --network=none --cap-drop=ALL --cap-add=SETGID \
     cortex pdflatex -output-directory=/tex/out "/tex/src/$base"
