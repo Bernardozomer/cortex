@@ -18,4 +18,7 @@ mkdir -p out
 srcdir=$(cd "$(dirname "$texfile")" && pwd)
 base=$(basename "$texfile")
 
-docker run -v "$srcdir":/tex/src -v "$(pwd)/out":/tex/out -it cortex pdflatex -output-directory=/tex/out /tex/src/"$base"
+docker run --rm \
+    -v "$srcdir":/tex/src:ro -v "$(pwd)/out":/tex/out \
+    --network=none \
+    cortex pdflatex -output-directory=/tex/out "/tex/src/$base"
