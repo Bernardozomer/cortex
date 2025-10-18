@@ -1,4 +1,4 @@
-FROM minidocks/texlive:small
+FROM minidocks/texlive:full
 
 WORKDIR /tex
 COPY . /tex/
